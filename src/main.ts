@@ -33,7 +33,7 @@ const meDiv = document.getElementById("me")!;
 let currentRoomId: string | null = null;
 
 async function fetchMe() {
-  const res = await fetch(serverUrl + "/api/me", { credentials: "include" });
+  const res = await fetch(serverUrl + "/api/test/me", { credentials: "include" });
   const data = await res.json();
   return data.user as { id: string; name: string } | null;
 }
@@ -155,7 +155,7 @@ function wireUI() {
 
   btnLogin.onclick = async () => {
     const name = nameInput.value.trim() || "Guest";
-    const res = await fetch(serverUrl + "/api/auth/login", {
+    const res = await fetch(serverUrl + "/api/test/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
